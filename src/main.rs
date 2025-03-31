@@ -110,15 +110,16 @@ fn setup(mut commands: Commands) {
     ));
  
     commands.spawn((
-        Text2d {
-            text: Text::new("Money: 0.0".to_string()),
-            font_size: 50.0,
-            color: Color::WHITE,
+        Text2d::new("Money: 0.0"),
+        TextLayout::new(JustifyText::Left, LineBreak::WordBoundary),
+        TextFont {
+            font_size: 30.0,
             ..default()
         },
+        TextColor(Color::WHITE),
         Transform::from_xyz(
-            (SIZE_WIDTH.end - 1) as f32 * WIDTH,
-            (SIZE_HEIGHT.end - 1) as f32 * HEIGHT,
+            0.0, // (SIZE_WIDTH.start) as f32 * WIDTH,
+            (SIZE_HEIGHT.start - 1) as f32 * HEIGHT,
             2.0,
         ),
     ));
